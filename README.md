@@ -1,12 +1,14 @@
-Sure, here's a more comprehensive README with additional sections like Installation, Usage, Contributing, License, and Contact:
+## Bassoon - A fun EDI clearinghouse 
 
-# Bassoon
-A demo EDI clearinghouse for processing EDIFACT transactions built with AWS CDK & TypeScript.
+<p align="center">
+  <img src="./readme-assets/instrument-cornemuse_optimized.png" />
+</p>
 
-> **_NOTE:_** Might rewrite with [Winglang](https://www.winglang.io/)
+---
 
 ## Table of Contents
-- [Requirements](#requirements)
+- [FAQ](#faq)
+- [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
@@ -14,52 +16,62 @@ A demo EDI clearinghouse for processing EDIFACT transactions built with AWS CDK 
 - [Contact](#contact)
 - [Useful Links](#useful-links)
 
-## Requirements
+## FAQ
+
+Q: What makes it fun? 
+
+A: It's fast, open source and doesn't use X12 (because mandated healthcare standards that are paywalled behind insane licensing fees are not fun)
+
+Q: Should I use this at work? 
+
+A: Bassoon is a great starting point for processing EDIFACT files but it is nowhere near production ready. Sev-1's are not fun.
+
+## Features
 
 ### 1. Document Management
-- **Storage**: S3
-- **Search**: DynamoDB
+- [ ] **Storage**: S3
+- [ ] **Search**: DynamoDB
 
 ### 2. EDI Protocols and Standards
-- **Supported Protocol**: EDIFACT (initial implementation)
-  - Note: X12 will not be supported due to proprietary constraints.
-- **Transaction Type**: Starting with purchase orders (ORDERS)
+- [ ] **Supported Protocol**: EDIFACT (initial implementation)
+  - [ ] Note: X12 will not be supported due to proprietary constraints.
+- [ ] **Transaction Type**: Starting with purchase orders (ORDERS)
 
 ### 3. EDI Transaction and Community Management
-- **Document Tracking and Searching**
-- **Duplicate Checking**
-- **Trading Partner Management**
-  - Group/Label
-  - Lookup
-  - Configurable Setup: Fields include name, ID, transaction version, transaction type, and status.
+- [ ] **Document Tracking and Searching**
+- [ ] **Duplicate Checking**
+- [ ] **Trading Partner Management**
+  - [ ] Group/Label
+  - [ ] Lookup
+  - [ ] Configurable Setup: Fields include name, ID, transaction version, transaction type, and status.
 
 ### 4. EDI Translation and Mapping
-- **Automated Acknowledgment Generation**
-- **Bulk/Batch Data Loading**
-- **Enveloping and De-enveloping Message Services**
-- **Message Parser**
-- **Rules-Based Routing**
-- **Validation Rules**
+- [ ] **Automated Acknowledgment Generation**
+- [ ] **Bulk/Batch Data Loading**
+- [ ] **Enveloping and De-enveloping Message Services**
+- [ ] **Message Parser**
+- [ ] **Rules-Based Routing**
+- [ ] **Validation Rules**
 
 ### 5. Integrations and Extensibility
-- **Extensibility**
-- **Future Integrations**
+- [ ] **Extensibility**
+- [ ] **Future Integrations**
 
 ### 6. Platform Capabilities and Security
-- **Audit Logs**
-- **Dashboards**
-- **Data Masking**: Mask sensitive data in transit and at rest, especially PHI fields.
-- **Encryption**: Encrypt data in transit and at rest using AWS KMS.
-- **Compliance**: Ensure compliance with FIPS 140-2, GDPR, ISO, and SOC standards.
-- **MIC Algorithms**: Support for SHA1 and MD5.
-- **Pre-Built Reports**: 
-  - Number of transactions
-  - Number of transactions rejected
-  - Number of transactions processed (daily, weekly, monthly)
-- **Role-Based Access Control**: Using AWS IAM
-  - Roles: Guest (view report URLs), Users (configure trading partners), Admins (configure everything)
-- **Single Sign-On (SSO)**
-- **System Notifications and Alerts**: Real-time notifications and alerts via email.
+- [ ] **Audit Logs**
+- [ ] **Dashboards**
+- [ ] **Data Masking**: Mask sensitive data in transit and at rest, especially PHI fields.
+- [ ] **Encryption**: Encrypt data in transit and at rest using AWS KMS.
+- [ ] **Compliance**: Ensure compliance with FIPS 140-2, GDPR, ISO, and SOC standards.
+- [ ] **MIC Algorithms**: Support for SHA1 and MD5.
+- [ ] **Pre-Built Reports**: 
+  - [ ] Number of transactions
+  - [ ] Number of transactions rejected
+  - [ ] Number of transactions processed (daily, weekly, monthly)
+- [ ] **Role-Based Access Control**: Using AWS IAM
+  - [ ] Roles: Guest (view report URLs), Users (configure trading partners), Admins (configure everything)
+- [ ] **Single Sign-On (SSO)**
+- [ ] **System Notifications and Alerts**: Real-time notifications and alerts via email.
 
 ## Installation
 
@@ -117,16 +129,9 @@ Contributions are welcome! Please follow these steps:
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## Contact
-
-For any questions or feedback, please contact [yourname](mailto:your.email@example.com).
-
 ## Useful Links
 - [EDI Requirements](https://www.selecthub.com/electronic-data-interchange/edi-requirements/#3_EDI_Transaction_and_Community_Management)
 - [EDIFACT Message Formats](https://www.edi-plus.com/resources/message-formats/edifact/)
 - [ts-edifact GitHub Repository](https://github.com/RovoMe/ts-edifact)
 - [UNECE EDIFACT Standard](https://service.unece.org/trade/untdid/d00a/trmd/impdef_c.htm)
 
----
-
-Feel free to adjust any sections as needed.
