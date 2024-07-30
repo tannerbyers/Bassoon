@@ -1,6 +1,8 @@
 # Bassoon
 A demo EDI clearinghouse for processing EDIFACT transactions built with AWS CDK &amp; TS
 
+> **_NOTE:_** Might rewrite with [winglang](https://www.winglang.io/)
+
 ## Requirements
 
 1. Document Management
