@@ -32,9 +32,9 @@ export class BassoonInfraStack extends cdk.Stack {
     lambdaRole.addManagedPolicy(iam.ManagedPolicy.fromAwsManagedPolicyName('service-role/AWSLambdaBasicExecutionRole'));
 
     // Lambda function for processing EDI transactions
-    const processEDILambda = new lambda.Function(this, 'ProcessEDILambda', {
-      runtime: lambda.Runtime.NODEJS_16_X,
-      handler: 'index.handler',
+    const uploadedifactlambda = new lambda.Function(this, 'UploadEDIFACTLambda', {
+      runtime: lambda.Runtime.NODEJS_20_X,
+      handler: 'uploadedifact.handler',
       code: lambda.Code.fromAsset('lambda'),
       role: lambdaRole,
       environment: {
@@ -43,8 +43,8 @@ export class BassoonInfraStack extends cdk.Stack {
       },
     });
 
-    bucket.grantReadWrite(processEDILambda);
-    table.grantReadWriteData(processEDILambda);
+    bucket.grantReadWrite(uploadedifactlambda);
+    table.grantReadWriteData(uploadedifactlambda);
 
     // API Gateway for accessing the Lambda function
     const api = new apigateway.RestApi(this, 'BassoonAPI', {
@@ -52,20 +52,8 @@ export class BassoonInfraStack extends cdk.Stack {
       description: 'This service handles EDI transactions.',
     });
 
-    const getTransactionsIntegration = new apigateway.LambdaIntegration(processEDILambda);
+    const getTransactionsIntegration = new apigateway.LambdaIntegration(uploadedifactlambda);
     api.root.addMethod('GET', getTransactionsIntegration);
-
-    // Cognito User Pool for authentication
-    const userPool = new cognito.UserPool(this, 'BassoonUserPool', {
-      selfSignUpEnabled: true,
-      signInAliases: { email: true },
-      autoVerify: { email: true },
-      userPoolName: 'BassoonUserPool',
-    });
-
-    const userPoolClient = new cognito.UserPoolClient(this, 'BassoonUserPoolClient', {
-      userPool,
-    });
 
     // CloudWatch dashboard for monitoring
     const dashboard = new cloudwatch.Dashboard(this, 'BassoonDashboard', {
@@ -76,11 +64,11 @@ export class BassoonInfraStack extends cdk.Stack {
     dashboard.addWidgets(
       new cloudwatch.GraphWidget({
         title: 'Lambda Invocations',
-        left: [processEDILambda.metricInvocations()],
+        left: [uploadedifactlambda.metricInvocations()],
       }),
       new cloudwatch.GraphWidget({
         title: 'Lambda Errors',
-        left: [processEDILambda.metricErrors()],
+        left: [uploadedifactlambda.metricErrors()],
       })
     );
   }

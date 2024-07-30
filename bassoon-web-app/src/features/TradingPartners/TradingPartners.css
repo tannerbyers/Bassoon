@@ -1,0 +1,9 @@
+.add-trading-partner-form {
+    display: flex; 
+    flex-direction: column;
+     width: 10rem;
+}
+
+.add-trading-partner-form * {
+    margin-top: 1rem;
+}
