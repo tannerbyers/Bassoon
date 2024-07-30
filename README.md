@@ -1,53 +1,132 @@
-# Bassoon
-A demo EDI clearinghouse for processing EDIFACT transactions built with AWS CDK &amp; TS
+Sure, here's a more comprehensive README with additional sections like Installation, Usage, Contributing, License, and Contact:
 
-> **_NOTE:_** Might rewrite with [winglang](https://www.winglang.io/)
+# Bassoon
+A demo EDI clearinghouse for processing EDIFACT transactions built with AWS CDK & TypeScript.
+
+> **_NOTE:_** Might rewrite with [Winglang](https://www.winglang.io/)
+
+## Table of Contents
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+- [Useful Links](#useful-links)
 
 ## Requirements
 
-1. Document Management
-Storage in S3
-Search in DynamoDB
+### 1. Document Management
+- **Storage**: S3
+- **Search**: DynamoDB
 
-2. EDI Protocols and Standards
-EDIFACT: Initial implementation will support EDIFACT protocol (X12, you will forever be the propietary bane of my existence).
-Transaction Type: Starting with purchase orders (ORDERS).
+### 2. EDI Protocols and Standards
+- **Supported Protocol**: EDIFACT (initial implementation)
+  - Note: X12 will not be supported due to proprietary constraints.
+- **Transaction Type**: Starting with purchase orders (ORDERS)
 
-3. EDI Transaction and Community Management
-Document Tracking and Searching
-Duplicate Checking
-Trading Partner Group/Label
-Trading Partner Lookup
-Trading Partner Setup: Configurable setup for trading partners with fields such as name, ID, transaction version, transaction type, and status.
+### 3. EDI Transaction and Community Management
+- **Document Tracking and Searching**
+- **Duplicate Checking**
+- **Trading Partner Management**
+  - Group/Label
+  - Lookup
+  - Configurable Setup: Fields include name, ID, transaction version, transaction type, and status.
 
-4. EDI Translation and Mapping
-Automated Acknowledgment Generation
-Bulk/Batch Data Loading
-Enveloping and De-enveloping Message Services
-Message Parser
-Rules-Based Routing
-Validation Rules
+### 4. EDI Translation and Mapping
+- **Automated Acknowledgment Generation**
+- **Bulk/Batch Data Loading**
+- **Enveloping and De-enveloping Message Services**
+- **Message Parser**
+- **Rules-Based Routing**
+- **Validation Rules**
 
-5. Integrations and Extensibility
-Extensibility
-Future Integrations
+### 5. Integrations and Extensibility
+- **Extensibility**
+- **Future Integrations**
 
-6. Platform Capabilities and Security
-Audit Logs
-Dashboards
-Data Masking: Mask sensitive data in transit and at rest, particularly fields considered PHI.
-Encryption: Encrypt data in transit and at rest using AWS KMS.
-Compliance: Ensure compliance with FIPS 140-2, GDPR, ISO, and SOC.
-MIC Algorithms: Support for SHA1 and MD5.
-Pre-Built Reports: Reports for the number of transactions, the number of transactions rejected, and the number of transactions processed over the day, week, and month.
-Role-Based Access Control: Implement role-based access control using AWS IAM. Roles include Guest (view report URLs), Users (configure trading partners), and Admins (configure everything).
-Single Sign-On (SSO)
-System Notifications and Alerts: Real-time notifications and alerts using email.
+### 6. Platform Capabilities and Security
+- **Audit Logs**
+- **Dashboards**
+- **Data Masking**: Mask sensitive data in transit and at rest, especially PHI fields.
+- **Encryption**: Encrypt data in transit and at rest using AWS KMS.
+- **Compliance**: Ensure compliance with FIPS 140-2, GDPR, ISO, and SOC standards.
+- **MIC Algorithms**: Support for SHA1 and MD5.
+- **Pre-Built Reports**: 
+  - Number of transactions
+  - Number of transactions rejected
+  - Number of transactions processed (daily, weekly, monthly)
+- **Role-Based Access Control**: Using AWS IAM
+  - Roles: Guest (view report URLs), Users (configure trading partners), Admins (configure everything)
+- **Single Sign-On (SSO)**
+- **System Notifications and Alerts**: Real-time notifications and alerts via email.
 
+## Installation
 
-# links
+1. **Clone the Repository**
+   ```sh
+   git clone https://github.com/yourusername/bassoon.git
+   cd bassoon
+   ```
 
-https://www.selecthub.com/electronic-data-interchange/edi-requirements/#3_EDI_Transaction_and_Community_Management
-https://www.edi-plus.com/resources/message-formats/edifact/
-https://github.com/RovoMe/ts-edifact
-https://service.unece.org/trade/untdid/d00a/trmd/impdef_c.htm
+2. **Install Dependencies**
+   ```sh
+   npm install
+   ```
+
+3. **Deploy the Infrastructure**
+   ```sh
+   npx cdk deploy
+   ```
+
+## Usage
+
+1. **Configure Trading Partners**
+   - Set up trading partners with necessary fields such as name, ID, transaction version, transaction type, and status.
+
+2. **Process Transactions**
+   - Upload EDIFACT transactions to the configured S3 bucket.
+   - Monitor transaction processing via dashboards and audit logs.
+
+3. **Access Reports**
+   - View pre-built reports on the number of transactions, rejected transactions, and processed transactions over various periods.
+
+## Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. **Fork the Repository**
+2. **Create a Branch**
+   ```sh
+   git checkout -b feature/your-feature
+   ```
+
+3. **Commit Your Changes**
+   ```sh
+   git commit -m 'Add some feature'
+   ```
+
+4. **Push to the Branch**
+   ```sh
+   git push origin feature/your-feature
+   ```
+
+5. **Open a Pull Request**
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For any questions or feedback, please contact [yourname](mailto:your.email@example.com).
+
+## Useful Links
+- [EDI Requirements](https://www.selecthub.com/electronic-data-interchange/edi-requirements/#3_EDI_Transaction_and_Community_Management)
+- [EDIFACT Message Formats](https://www.edi-plus.com/resources/message-formats/edifact/)
+- [ts-edifact GitHub Repository](https://github.com/RovoMe/ts-edifact)
+- [UNECE EDIFACT Standard](https://service.unece.org/trade/untdid/d00a/trmd/impdef_c.htm)
+
+---
+
+Feel free to adjust any sections as needed.
