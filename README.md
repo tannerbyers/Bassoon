@@ -1,4 +1,4 @@
-## Bassoon - A fun EDI clearinghouse 
+## Bassoon - A fun cloud based EDI clearinghouse 
 
 <p align="center">
   <img src="./readme-assets/instrument-cornemuse_optimized.png" />
@@ -24,7 +24,7 @@ A: It's fast, open source and doesn't use X12 (because mandated healthcare stand
 
 Q: Should I use this at work? 
 
-A: Bassoon is a great starting point for processing EDIFACT files but it is nowhere near production ready. Sev-1's are not fun.
+A: Bassoon is a great starting point for processing EDIFACT files in the cloud but it is nowhere near production ready. Sev-1's are not fun.
 
 ## Features
 
